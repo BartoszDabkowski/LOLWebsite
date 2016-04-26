@@ -1,0 +1,13 @@
+<h1>Champions</h1>
+
+<div class="container col-xs-8 col-xs-offset-2">
+    <div class="well">
+        <div class="row">
+            <div *ngIf="finishedLoading">
+                <div *ngFor="#champ of champions" class="col-xs-2">
+                    <champion-icon [champion]="champ"></champion-icon>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

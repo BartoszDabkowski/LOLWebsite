@@ -1,0 +1,38 @@
+<div class="well">
+    <div class="media">
+    <div class="media-left media-middle">
+        <a href="#">
+        <img class="media-object champion-header-image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champion.id}}_0.jpg">
+        </a>
+    </div>
+    <div class="media-body">
+        <span class="media-heading text-info h3">{{champion.id}}</span> - <em>{{champion.title}}</em>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-2">
+                    <h5 class="text-info">Primary Role</h5>
+                    <span>{{champion.tags[0]}}</span>
+                </div>
+                <div class="col-xs-2">
+                    <h5 class="text-info">Secondary Role</h5>
+                    <span *ngIf="!champion.tags[1]">N/A</span>
+                    {{champion.tags[1]}}
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-xs-4">
+            Attack <champion-infobar [color]="'danger'" [size]="champion.info.attack"></champion-infobar>
+            Defense <champion-infobar [color]="'success'" [size]="champion.info.defense"></champion-infobar>
+            Ability <champion-infobar [color]="'primary'" [size]="champion.info.magic"></champion-infobar>
+            Difficulty <champion-infobar [color]="'info'" [size]="champion.info.difficulty"></champion-infobar>
+        </div>
+        <div class="col-xs-4">
+            
+        </div>
+    </div>
+    </div>
+</div>
+
+<!--{{champion.spells[0].description}}-->

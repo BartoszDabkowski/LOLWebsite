@@ -1,8 +1,39 @@
 <div *ngIf="finishedLoading">
-    <div class="container col-xs-10 col-xs-offset-1">
+    <div class="container col-xs-12">
         <champion-header [champion]="champion"></champion-header>
-        <div *ngFor="#ability of champion.spells">
-            <ability-tab [ability]="ability"></ability-tab>
+        <div *ngFor="#ability of champion.spells; #i = index">
+            <ability-tab [championId]="champion.key" [abilityId]="i + 2" [ability]="ability">
+            </ability-tab>
         </div>
     </div>
+
+    <!--<div class="bs-example">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            
+            <div class="carousel-inner">
+                
+                <div class="item active">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg">
+                </div>
+                
+                <div *ngFor="#image of champion.skins; #i = index" class="item">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_{{i}}.jpg">
+                </div>
+            </div>
+            
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>-->
+
 </div>

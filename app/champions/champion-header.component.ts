@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, OnChanges} from 'angular2/core';
 import {ChampionInfobarComponent} from './champion-infobar.component'
 
 @Component({
@@ -6,6 +6,13 @@ import {ChampionInfobarComponent} from './champion-infobar.component'
     templateUrl: '/app/champions/champion-header.component.html',
     directives: [ChampionInfobarComponent]
 })
-export class ChampionHeaderComponent{ 
+export class ChampionHeaderComponent implements OnChanges{ 
     @Input() champion;
+    attackSpeed;
+    
+    ngOnChanges(){
+        this.attackSpeed = 
+            (0.625 / (1 + this.champion.stats.attackspeedoffset))
+            .toFixed(3);
+    }
 }

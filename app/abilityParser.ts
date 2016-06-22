@@ -56,5 +56,6 @@ export class AbilityParser{
                 }
             }
         }
+        return 0;
     }
 }

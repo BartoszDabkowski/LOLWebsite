@@ -1,0 +1,16 @@
+<div class="container col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <h1>Items</h1>
+    <div class="well">
+        <div class="row">
+            <div *ngIf="finishedLoading">
+                <div *ngFor="#item of items" class="col-xs-4 col-sm-3 col-md-2">
+                    <champion-icon 
+                        [championId]="item.id" 
+                        [image]="item.image.full"
+                        [type]="item">
+                    </champion-icon>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,27 +1,40 @@
-<div class="well">
-    <div class="media">
-    <div class="media-left media-top">
-        <img class="media-object" src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/spell/{{ability.id}}.png ">
-    </div>
-    <div class="media-body">
+<div *ngIf="finishedLoading">
+    <div class="well">
         <div class="row">
-            <div class="col-xs-3">
-                <h4 class="media-heading text-info">{{ability.name}}</h4>
+            <div class="col-sm-12 col-md-6 col-lg-8">
+                <div class="media">
+                    <div class="media-left media-top">
+                        <img class="media-object" src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/spell/{{ability.id}}.png ">
+                    </div>
+                    <div class="media-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4 class="media-heading text-info">{{ability.name}}</h4>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="media-heading pull-right"> 
+                        <span class="text-info">Cost:</span>
+                        &nbsp; {{ability.costBurn}} 
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="text-info">Cooldown:</span>
+                        &nbsp; {{ability.cooldownBurn}}
+                    </h5>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            {{ability.description}}
+                            <br>
+                            <br>
+                            <div [innerHTML]="ability.tooltip"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-9">
-                <h5 class="media-heading pull-right"> 
-                    <span class="text-info">Cost:</span>
-                    &nbsp; {{ability.costBurn}} 
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="text-info">Cooldown:</span>
-                    &nbsp; {{ability.cooldownBurn}}
-                </h5>
+            <div class="col-sm-12 col-md-6 col-lg-4 centered">
+                <video controls autoplay muted loop width="348" height="196">
+                    <source src={{videoUrl}} type="video/mp4">
+                </video>
             </div>
         </div>
-        {{ability.description}} 
-        <br>
-        <br>
-        <div [innerHTML]="ability.tooltip"></div>
-    </div>
     </div>
 </div>

@@ -1,19 +1,29 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, OnChanges} from 'angular2/core';
 import {ROUTER_DIRECTIVES, Router, RouteParams} from 'angular2/router';
-import {RiotService} from '../riot.service'
+import {RiotService} from '../riot.service';
+import {Constants} from '../constants';
 
 @Component({
     selector: 'champion-icon',
     template: `
     <div>
         <img class = "champion-icon"
-            src="http://ddragon.leagueoflegends.com/cdn/6.7.1/img/champion/{{champion.image.full}}">
-        <center><a [routerLink]="['Champion', {id: champion.id}]">{{champion.id}}</a></center>
+            src={{url}}>
+        <center><a [routerLink]="['Champion', {id: championId}]">{{championId}}</a></center>
     </div>
     `,
     providers: [RiotService],
     directives: [ROUTER_DIRECTIVES]
 })
-export class ChampionIconComponent{ 
-    @Input() champion;
+export class ChampionIconComponent implements OnChanges{ 
+    @Input() championId;
+    @Input() image;
+    url;
+    
+    constructor(private constants : Constants){
+    }
+    ngOnChanges(){
+        this.url = "http://ddragon.leagueoflegends.com/cdn/" + 
+            this.constants.PATCH + "/img/champion/" + this.image;
+    }
 }

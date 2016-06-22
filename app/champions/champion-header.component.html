@@ -28,11 +28,44 @@
             Ability <champion-infobar [color]="'primary'" [size]="champion.info.magic"></champion-infobar>
             Difficulty <champion-infobar [color]="'info'" [size]="champion.info.difficulty"></champion-infobar>
         </div>
-        <div class="col-xs-4">
-            
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="text-info">Health:</div> 
+                    {{champion.stats.hp}} + ({{champion.stats.hpperlevel}} per level)
+                </div>
+                <div class="col-xs-6">
+                    <div class="text-info">Health Regen:</div> 
+                    {{champion.stats.hpregen}} + ({{champion.stats.hpregenperlevel}} per level)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="text-info">Attack Damage:</div> 
+                    {{champion.stats.attackdamage}} + ({{champion.stats.attackdamageperlevel}} per level)
+                </div>
+                <div class="col-xs-6">
+                    <div class="text-info">Armor:</div> 
+                    {{champion.stats.armor}} + ({{champion.stats.armorperlevel}} per level)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="text-info">Attack Speed:</div> 
+                     {{attackSpeed}} + ({{champion.stats.attackspeedperlevel}}% per level)
+                </div>
+                <div class="col-xs-6">
+                    <div class="text-info">Magic Resist:</div> 
+                    {{champion.stats.spellblock}} + ({{champion.stats.spellblockperlevel}} per level)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="text-info">Movement:</div> 
+                    {{champion.stats.movespeed}}
+                </div>
+            </div>
         </div>
     </div>
     </div>
 </div>
-
-<!--{{champion.spells[0].description}}-->
